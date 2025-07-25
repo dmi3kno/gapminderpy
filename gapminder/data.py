@@ -3,5 +3,5 @@ from io import StringIO
 import pandas as pd
 
 def _load_gapminder():
-    content = resources.path('gapminder', 'gapminder.csv')
-    return pd.read_csv(content)
+    with resources.files('gapminder').joinpath('gapminder.csv').open('r', encoding='utf-8') as f:
+        return pd.read_csv(f)
